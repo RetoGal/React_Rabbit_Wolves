@@ -4,6 +4,7 @@ import CreateGameBoard from './createGameBoard'
 import { useState } from 'react'
 import gameMovement from './gameMove'
 import moveWolvesOnNewBox from './moveWolvesOnNewBox'
+import GameStatusMessage  from './gameMessage'
 
 const SELECT_OPTION_VALUE = {
   option1: 5,
@@ -15,7 +16,7 @@ const CreateGameStartTools = () => {
   const [value, setValue] = useState(SELECT_OPTION_VALUE.option1)
   const [gameState, setGameState] = useState({
     matrix: [],
-    theGameContinues: false,
+    theGameContinues: '',
     theResultOfTheGame: '',
   })
   
@@ -23,16 +24,17 @@ const CreateGameStartTools = () => {
   const SubmitChange = () => {
     setGameState({
       matrix: createGameBoardMatrix(parseInt(value)),
-      theGameContinues: true,
+      theGameContinues: false,
       theResultOfTheGame: '',
     })
   }
   const GAME_STATE = {...gameState}
   const ArrowChange = (direction) => {
-    setGameState(GAME_STATE,gameMovement(direction, gameState.matrix))
-    moveWolvesOnNewBox(gameState.matrix)
+    setGameState(GAME_STATE,gameMovement(direction, GAME_STATE))
+    moveWolvesOnNewBox(GAME_STATE)
   }
 
+  <GameStatusMessage gameObj={GAME_STATE} />
   return (
     <div>
       <select className="select" onChange={SelectChange}>
@@ -47,7 +49,7 @@ const CreateGameStartTools = () => {
         Start
       </button>
 
-      {<CreateGameBoard gameArr={gameState.matrix} />}
+      {<CreateGameBoard gameObj = {GAME_STATE} />}
       <div className="arrowDirection">
         <div className="divUp">
           <CreateDirectionButtons onClick={() => ArrowChange('up')} />
