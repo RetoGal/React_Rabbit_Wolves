@@ -1,17 +1,16 @@
 import CHARACTER_PARAMS from './objCaracterParams'
 
-
-const PutTheCharacterInFreeCell = (props) => {
-  const box = props.cordinateY
-  if (box === CHARACTER_PARAMS.rabbit.name) {
-    return <img src={CHARACTER_PARAMS.rabbit.src} />
-  } else if (box === CHARACTER_PARAMS.wolf.name) {
-    return <img src={CHARACTER_PARAMS.wolf.src} />
-  } else if (box === CHARACTER_PARAMS.ban.name) {
-    return <img src={CHARACTER_PARAMS.ban.src} />
-  } else if (box === CHARACTER_PARAMS.home.name) {
-    return <img src={CHARACTER_PARAMS.home.src} />
-  }
-}
+const PutTheCharacterInFreeCell = (props) =>
+  props.cordinateY === CHARACTER_PARAMS.rabbit.name ? (
+    <img src={CHARACTER_PARAMS.rabbit.src} />
+  ) : props.cordinateY === CHARACTER_PARAMS.wolf.name ? (
+    <img src={CHARACTER_PARAMS.wolf.src} />
+  ) : props.cordinateY === CHARACTER_PARAMS.ban.name ? (
+    <img src={CHARACTER_PARAMS.ban.src} />
+  ) : props.cordinateY === CHARACTER_PARAMS.home.name ? (
+    <img src={CHARACTER_PARAMS.home.src} />
+  ) : (
+    ''
+  )
 
 export default PutTheCharacterInFreeCell

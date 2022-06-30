@@ -24,7 +24,7 @@ const CreateGameStartTools = () => {
   const SubmitChange = () => {
     setGameState({
       matrix: createGameBoardMatrix(parseInt(value)),
-      theGameContinues: false,
+      theGameContinues: true,
       theResultOfTheGame: '',
     })
   }
@@ -33,8 +33,11 @@ const CreateGameStartTools = () => {
     setGameState(GAME_STATE,gameMovement(direction, GAME_STATE))
     moveWolvesOnNewBox(GAME_STATE)
   }
+   if(GAME_STATE.theGameContinues === false){
+    return  <GameStatusMessage GAME_STATE = {GAME_STATE} />
+   }
 
-  <GameStatusMessage gameObj={GAME_STATE} />
+
   return (
     <div>
       <select className="select" onChange={SelectChange}>
@@ -48,8 +51,9 @@ const CreateGameStartTools = () => {
       <button key={'startBtn'} className="startBtn" onClick={SubmitChange}>
         Start
       </button>
+      
+      {<CreateGameBoard gameObj = {gameState} />}
 
-      {<CreateGameBoard gameObj = {GAME_STATE} />}
       <div className="arrowDirection">
         <div className="divUp">
           <CreateDirectionButtons onClick={() => ArrowChange('up')} />

@@ -1,15 +1,12 @@
-import React from "react"
+import React from 'react'
 
-const GameStatusMessage = (props) => {
-  const GAME_STATE = props.gameObj
-  console.log(GAME_STATE,3)
-  GAME_STATE.theGameContinues = false
-  console.log(GAME_STATE.theGameContinues)
-  if (GAME_STATE.theResultOfTheGame === 'gameOver') {
-    <h2>GAME OVER</h2>
-  } else if (GAME_STATE.theResultOfTheGame === 'youWon') {
-    <h2> YOU WON</h2>
-  } 
- 
-}
+const GameStatusMessage = (props) =>
+  props.GAME_STATE.theResultOfTheGame === 'gameOver' ? (
+    <h1>GAME OVER</h1>
+  ) : props.GAME_STATE.theResultOfTheGame === 'youWon' ? (
+    <h1> YOU WON</h1>
+  ) : (
+    ''
+  )
+
 export default GameStatusMessage

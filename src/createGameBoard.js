@@ -10,7 +10,6 @@ const CreateGameBoard = (props) => {
       {GAME_STATE.matrix.map((cordinateX) =>
         cordinateX.map((cordinateY, i) => {
           return (
-            
             <div key={i} className="box">
               <PutTheCharacterInFreeCell cordinateY={cordinateY} />
             </div>
