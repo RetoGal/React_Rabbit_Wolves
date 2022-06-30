@@ -3,10 +3,12 @@ import getCordinatesOfCharacter from './getCordinatesOfCharacter'
 import moveRabbit from './moveRabbit'
 
 const gameMovement = (direction, arr) => {
+ 
   const cordinateOfCharacter = getCordinatesOfCharacter(
     arr,
     CHARACTER_PARAMS.rabbit.name
   )
+  
   const [x, y] = cordinateOfCharacter[0]
   let newX = x
   let newY = y

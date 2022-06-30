@@ -13,14 +13,24 @@ const SELECT_OPTION_VALUE = {
 
 const CreateGameStartTools = () => {
   const [value, setValue] = useState(SELECT_OPTION_VALUE.option1)
-  const [gameArray, setGameArray] = useState([])
+  const [gameState, setGameState] = useState({
+    matrix: [],
+    theGameContinues: false,
+    theResultOfTheGame: '',
+  })
+  
   const SelectChange = (evt) => setValue(evt.target.value)
   const SubmitChange = () => {
-    setGameArray(createGameBoardMatrix(parseInt(value)))
+    setGameState({
+      matrix: createGameBoardMatrix(parseInt(value)),
+      theGameContinues: true,
+      theResultOfTheGame: '',
+    })
   }
+  const GAME_STATE = {...gameState}
   const ArrowChange = (direction) => {
-    setGameArray([...gameMovement(direction, gameArray)])
-    moveWolvesOnNewBox(gameArray)
+    setGameState(GAME_STATE,gameMovement(direction, gameState.matrix))
+    moveWolvesOnNewBox(gameState.matrix)
   }
 
   return (
@@ -37,7 +47,7 @@ const CreateGameStartTools = () => {
         Start
       </button>
 
-      {<CreateGameBoard matrix={gameArray} />}
+      {<CreateGameBoard gameArr={gameState.matrix} />}
       <div className="arrowDirection">
         <div className="divUp">
           <CreateDirectionButtons onClick={() => ArrowChange('up')} />

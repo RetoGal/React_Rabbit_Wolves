@@ -1,5 +1,6 @@
 import CHARACTER_PARAMS from './objCaracterParams'
 
+
 const PutTheCharacterInFreeCell = (props) => {
   const box = props.cordinateY
   if (box === CHARACTER_PARAMS.rabbit.name) {

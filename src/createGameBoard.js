@@ -1,12 +1,12 @@
 import PutTheCharacterInFreeCell from './putTheCharacterInFreeCell'
 
 const CreateGameBoard = (props) => {
-  const matrix = props.matrix
+  const matrix = props.gameArr
   const gameBoardStyle = {
     width: matrix.length * 60 + 20 + 'px',
   }
   return (
-    <div className="gameBoard" style={gameBoardStyle}>
+    <div className={"gameBoard"} style={gameBoardStyle}>
       {matrix.map((cordinateX) =>
         cordinateX.map((cordinateY, i) => {
           return (
@@ -15,7 +15,7 @@ const CreateGameBoard = (props) => {
             </div>
           )
         })
-      )}
+      )}z
     </div>
   )
 }
