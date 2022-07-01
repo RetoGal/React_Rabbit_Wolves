@@ -6,14 +6,18 @@ import CreateGameStartTools from './gameStartTools'
 
 const Draw = () => {
   const [value, setValue] = useState([])
-  const drawGameTools = () => setValue([...value, <CreateGameStartTools />])
+  const handleClick = () => {
+  setValue([...value, value + 1])
 
+  
+}
+console.log(value)
   return (
     <div>
-      <button className="newAreaBtn" onClick={drawGameTools}>
+      <button className="newAreaBtn" onClick={handleClick}>
         New Game
       </button>
-      {value}
+      {value.map((value) =>{ return <CreateGameStartTools key={value} />})}
     </div>
   )
 
