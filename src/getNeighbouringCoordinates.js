@@ -1,5 +1,8 @@
 const isInRange = (GAME_STATE, [x, y]) =>
-  x >= 0 && x < GAME_STATE.matrix.length && y >= 0 && y < GAME_STATE.matrix.length 
+  x >= 0 &&
+  x < GAME_STATE.matrix.length &&
+  y >= 0 &&
+  y < GAME_STATE.matrix.length
 
 const getNeighbouringCoordinates = (GAME_STATE, [x, y]) => {
   const cells = [

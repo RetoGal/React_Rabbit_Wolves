@@ -1,6 +1,6 @@
 import CHARACTER_PARAMS from './objCaracterParams'
 
-const drawACharacter = (props) =>
+const DrawACharacter = (props) =>
   props.cell === CHARACTER_PARAMS.rabbit.name ? (
     <img src={CHARACTER_PARAMS.rabbit.src} />
   ) : props.cell === CHARACTER_PARAMS.wolf.name ? (
@@ -12,4 +12,4 @@ const drawACharacter = (props) =>
   ) : (
     ''
   )
-export default drawACharacter
+export default DrawACharacter

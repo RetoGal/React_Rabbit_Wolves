@@ -1,12 +1,16 @@
 import React from 'react'
+import CHARACTER_PARAMS from './objCaracterParams'
 
-const GameStatusMessage = (props) =>
-  props.GAME_STATE.theResultOfTheGame === 'gameOver' ? (
-    <h1>GAME OVER</h1>
-  ) : props.GAME_STATE.theResultOfTheGame === 'youWon' ? (
-    <h1> YOU WON</h1>
-  ) : (
-    ''
-  )
+const GameStatusMessage = (props) => {
+  if (props.gameState.theResultOfTheGame === 'gameOver') {
+    return (
+      <div>
+        <img src={CHARACTER_PARAMS.xashlama.src} />
+      </div>
+    )
+  } else if (props.gameState.theResultOfTheGame === 'youWon') {
+    return <h1> YOU WON</h1>
+  }
+}
 
 export default GameStatusMessage

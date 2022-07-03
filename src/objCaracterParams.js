@@ -3,6 +3,7 @@ const CHARACTER_PARAMS = {
   wolf:   { name: 'wolf', src: './img/volk.png' },
   ban:    { name: 'ban', src: './img/ban.png' },
   home:   { name: 'home', src: './img/home.png', count: 1 },
+  xashlama : {src : './img/xashlama.jpg'}
 }
 
 export default CHARACTER_PARAMS

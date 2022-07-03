@@ -6,7 +6,7 @@ const getFreeBoxNextToWolf = (GAME_STATE, [x, y]) => {
   const sidesWolf = getNeighbouringCoordinates(GAME_STATE, [x, y])
   const result = []
   sidesWolf.forEach((freeCell) => {
-    if(GAME_STATE.theGameContinues === false){
+    if (GAME_STATE.theGameContinues === false) {
       return
     }
     const [x, y] = freeCell

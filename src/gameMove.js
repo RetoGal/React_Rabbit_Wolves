@@ -4,7 +4,7 @@ import moveRabbit from './moveRabbit'
 import moveWolvesOnNewBox from './moveWolvesOnNewBox'
 
 const gameMovement = (direction, GAME_STATE) => {
- const matrix = GAME_STATE.matrix
+  const matrix = GAME_STATE.matrix
   const cordinateOfCharacter = getCordinatesOfCharacter(
     GAME_STATE,
     CHARACTER_PARAMS.rabbit.name

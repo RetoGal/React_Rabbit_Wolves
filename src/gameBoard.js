@@ -1,4 +1,4 @@
-import PutTheCharacterInFreeCell from './drawACharacter'
+import DrawACharacter from './drawACharacter'
 
 const gameBoard = (props) => {
   const GAME_STATE = props.gameState
@@ -6,12 +6,12 @@ const gameBoard = (props) => {
     width: GAME_STATE.matrix.length * 60 + 20 + 'px',
   }
   return (
-    <div className={"gameBoard"} style={gameBoardStyle}>
+    <div className={'gameBoard'} style={gameBoardStyle}>
       {GAME_STATE.matrix.map((row) =>
         row.map((cell, i) => {
           return (
             <div key={i} className="box">
-              <PutTheCharacterInFreeCell cell={cell} />
+              <DrawACharacter cell={cell} />
             </div>
           )
         })
