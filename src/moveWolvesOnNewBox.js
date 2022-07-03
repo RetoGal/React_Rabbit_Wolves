@@ -8,6 +8,9 @@ const moveWolvesOnNewBox = (GAME_STATE) => {
   const matrix = GAME_STATE.matrix
   const sideWolves = getCordinatesOfCharacter(GAME_STATE, CHARACTER_PARAMS.wolf.name)
   sideWolves.forEach((cordinateWolves) => {
+    if(GAME_STATE.theGameContinues === false){
+      return
+    }
     const [XnearestСell, YnearestСell] = findNearestСell(GAME_STATE, cordinateWolves)
     const [Xwolves, Ywolves] = cordinateWolves
     matrix[Xwolves][Ywolves] = FREE_CELL

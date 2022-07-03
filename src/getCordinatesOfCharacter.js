@@ -1,7 +1,6 @@
 const getCordinatesOfCharacter = (GAME_STATE, character) => {
-  console.log(GAME_STATE,555)
   const matrix = GAME_STATE.matrix
-   const cordsCharacter = []
+  const cordsCharacter = []
   for (let x = 0; x < matrix.length; x++) {
     for (let y = 0; y < matrix.length; y++) {
       matrix[x][y] === character && cordsCharacter.push([x, y])
