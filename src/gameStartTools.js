@@ -9,16 +9,16 @@ const buttonsDirection = ['up', 'right', 'left', 'down']
 
 const CreateGameStartTools = () => {
   const [optionValue, setOptionValue] = useState(SELECT_OPTION_VALUE[0])
-  const selOptionValue = parseInt(optionValue)
+  const selectOptionValue = parseInt(optionValue)
   const [gameState, setGameState] = useState({
     matrix: [],
     theGameContinues: false,
     theResultOfTheGame: '',
   })
-  const selectChange = (evt) => setOptionValue(evt.target.value)
+  const selectChange = (e) => setOptionValue(e.target.value)
   const startGame = () => {
     setGameState({
-      matrix: createGameBoardMatrix(selOptionValue),
+      matrix: createGameBoardMatrix(selectOptionValue),
       theGameContinues: true,
       theResultOfTheGame: '',
     })
@@ -53,7 +53,7 @@ const CreateGameStartTools = () => {
       <div className="arrowDirection">
         { buttonsDirection.map((direction) => {
           return (
-            <button key={direction} className= {direction} onClick={() => arrowChange(direction)}>{direction}</button>
+            <button key={direction} className = {direction} onClick={() => arrowChange(direction)}>{direction}</button>
           )
         })}
       </div>

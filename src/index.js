@@ -6,8 +6,9 @@ import CreateGameStartTools from './gameStartTools'
 
 const Draw = () => {
   const [componentNumber, setComponentNumber] = useState([])
+
   const handleClick = () => {
-    setComponentNumber([...componentNumber, componentNumber + 1])
+    setComponentNumber([...componentNumber, componentNumber.length + 1])
   }
   return (
     <div>
