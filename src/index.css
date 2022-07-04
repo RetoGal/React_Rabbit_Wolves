@@ -66,30 +66,23 @@ margin: 25px;
 }
 
 
-.arrow_sides{
-  display: flex;
-  justify-content: center;
-}
 
-.divRight {
-  display: flex;
-  justify-content: end;
-}
+.right {
+position: relative;
+left: 100px;
+  }
 
 
-.divLeft {
-  display: flex;
-  justify-content: start;
-}
+.left {
+  position: relative;
+  right: 100px;
+  bottom: 50px;
+  }
 
-.divUp{
-display: flex;
-justify-content: center;
-}
 
-.divDown{
-display: flex;
-justify-content: center;
+.down{
+  position: relative;
+  bottom: 50px;
 }
 
 
@@ -106,10 +99,16 @@ justify-content: center;
 }
 
 
-.create_game{
+.createGame{
 display: flex;
 justify-content: center;
 
+}
+
+.arrowDirection{
+  display: flex;
+  flex-direction: column;
+ align-items: center;
 }
 
 
@@ -127,5 +126,6 @@ background-color: rgb(255, 0, 212);
 
 h1 {
   text-align: center ;
-  color: green;
+  
+  color: rgb(0, 255, 0);
 }

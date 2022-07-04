@@ -4,25 +4,25 @@ import getRabbitNextToWolf from './getRabbitNextToWolf'
 import CHARACTER_PARAMS from './objCaracterParams'
 const FREE_CELL = 0
 
-const moveWolvesOnNewBox = (GAME_STATE) => {
-  const matrix = GAME_STATE.matrix
+const moveWolvesOnNewBox = (gameState) => {
+  const matrix = gameState.matrix
   const sideWolves = getCordinatesOfCharacter(
-    GAME_STATE,
+    gameState,
     CHARACTER_PARAMS.wolf.name
   )
   sideWolves.forEach((cordinateWolves) => {
-    if (GAME_STATE.theGameContinues === false) {
+    if (gameState.theGameContinues === false) {
       return
     }
     const [XnearestСell, YnearestСell] = findNearestСell(
-      GAME_STATE,
+      gameState,
       cordinateWolves
     )
     const [Xwolves, Ywolves] = cordinateWolves
     matrix[Xwolves][Ywolves] = FREE_CELL
     matrix[XnearestСell][YnearestСell] = CHARACTER_PARAMS.wolf.name
-    getRabbitNextToWolf(GAME_STATE, cordinateWolves)
-    return matrix
+    getRabbitNextToWolf(gameState, cordinateWolves)
+    return gameState
   })
 }
 

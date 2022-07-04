@@ -1,16 +1,16 @@
 import getNeighbouringCoordinates from './getNeighbouringCoordinates'
 
-const getRabbitNextToWolf = (GAME_STATE, [x, y]) => {
-  const matrix = GAME_STATE.matrix
-  const sidesWolf = getNeighbouringCoordinates(GAME_STATE, [x, y])
+const getRabbitNextToWolf = (gameState, [x, y]) => {
+  const matrix = gameState.matrix
+  const sidesWolf = getNeighbouringCoordinates(gameState, [x, y])
   sidesWolf.forEach((freeCell) => {
-    if (GAME_STATE.theGameContinues === false) {
+    if (gameState.theGameContinues === false) {
       return
     }
     const [x, y] = freeCell
     if (matrix[x][y] === 'rabbit') {
-      GAME_STATE.theResultOfTheGame = 'gameOver'
-      GAME_STATE.theGameContinues = false
+      gameState.theResultOfTheGame = 'gameOver'
+      gameState.theGameContinues = false
     }
   })
 }

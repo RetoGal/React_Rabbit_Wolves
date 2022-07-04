@@ -1,33 +1,34 @@
 import createGameBoardMatrix from './setCharacterInfreePositon'
-import CreateDirectionButtons from './directionButtons'
 import CreateGameBoard from './gameBoard'
 import { useState } from 'react'
 import gameMovement from './gameMove'
 import GameStatusMessage from './gameMessage'
 
 const SELECT_OPTION_VALUE = [5, 7, 10]
+const buttonsDirection = ['up', 'right', 'left', 'down']
 
 const CreateGameStartTools = () => {
-  const [value, setValue] = useState(SELECT_OPTION_VALUE[0])
+  const [optionValue, setOptionValue] = useState(SELECT_OPTION_VALUE[0])
+  const selOptionValue = parseInt(optionValue)
   const [gameState, setGameState] = useState({
     matrix: [],
     theGameContinues: false,
     theResultOfTheGame: '',
   })
-  const selectChange = (evt) => setValue(evt.target.value)
+  const selectChange = (evt) => setOptionValue(evt.target.value)
   const startGame = () => {
     setGameState({
-      matrix: createGameBoardMatrix(parseInt(value)),
+      matrix: createGameBoardMatrix(selOptionValue),
       theGameContinues: true,
       theResultOfTheGame: '',
     })
   }
-  const GAME_STATE = { ...gameState }
+
   const arrowChange = (direction) => {
-    if (GAME_STATE.theGameContinues === false) {
+     if (gameState.theGameContinues === false) {
       return
     }
-    setGameState(GAME_STATE, gameMovement(direction, GAME_STATE))
+    setGameState(gameMovement(direction, gameState))
   }
   return (
     <div>
@@ -50,20 +51,11 @@ const CreateGameStartTools = () => {
       )}
 
       <div className="arrowDirection">
-        <div className="divUp">
-          <CreateDirectionButtons onClick={() => arrowChange('up')} />
-        </div>
-        <div className="arrow_sides">
-          <div className="divLeft">
-            <CreateDirectionButtons onClick={() => arrowChange('left')} />
-          </div>
-          <div className="divRight">
-            <CreateDirectionButtons onClick={() => arrowChange('right')} />
-          </div>
-        </div>
-        <div className="divDown">
-          <CreateDirectionButtons onClick={() => arrowChange('down')} />
-        </div>
+        { buttonsDirection.map((direction) => {
+          return (
+            <button key={direction} className= {direction} onClick={() => arrowChange(direction)}>{direction}</button>
+          )
+        })}
       </div>
     </div>
   )

@@ -1,12 +1,12 @@
 import getNeighbouringCoordinates from './getNeighbouringCoordinates'
 const FREE_CELL = 0
 
-const getFreeBoxNextToWolf = (GAME_STATE, [x, y]) => {
-  const matrix = GAME_STATE.matrix
-  const sidesWolf = getNeighbouringCoordinates(GAME_STATE, [x, y])
+const getFreeBoxNextToWolf = (gameState, [x, y]) => {
+  const matrix = gameState.matrix
+  const sidesWolf = getNeighbouringCoordinates(gameState, [x, y])
   const result = []
   sidesWolf.forEach((freeCell) => {
-    if (GAME_STATE.theGameContinues === false) {
+    if (gameState.theGameContinues === false) {
       return
     }
     const [x, y] = freeCell
