@@ -1,22 +1,5 @@
 import GameBoard from './gameBoard'
-import styled from 'styled-components'
-
-const DivСellСharacter = styled.div`
-  width: 60px;
-  height: 60px;
-  background-color: #ff6d419d;
-  margin: 1px;
-`
-
-const DivGameWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  background-color: #ffdafa;
-  border-radius: 30px;
-  padding: 20px;
-  width: ${(props) => props.matrixLength * 60 + 20 + 'px'};
-`
+import { DivGameWrapper, DivСellСharacter } from './componentStyles'
 
 const GameWrapper = (props) => {
   const gameState = props.gameState

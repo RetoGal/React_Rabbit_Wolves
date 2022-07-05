@@ -1,10 +1,6 @@
 import CHARACTER_PARAMS from './objCaracterParams'
-import styled from 'styled-components'
+import { ImgCharacters } from './componentStyles'
 
-const ImgCharacters = styled.img`
-  width: 60px;
-  height: 60px;
-`
 const GameBoard = (props) =>
   props.cell === CHARACTER_PARAMS.rabbit.name ? (
     <ImgCharacters src={CHARACTER_PARAMS.rabbit.src} />

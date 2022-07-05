@@ -1,11 +1,6 @@
 import React from 'react'
-import styled from 'styled-components'
+import { GameResult } from './componentStyles'
 
-const GameResult = styled.p`
-  font-size: 80px;
-  text-align: center;
-  color: red;
-`
 const GameStatusMessage = (props) => (
   <GameResult>
     {props.gameState.theResultOfTheGame === 'youWon'
