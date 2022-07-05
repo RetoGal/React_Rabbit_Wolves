@@ -3,6 +3,59 @@ import GameWrapper from './gameWrapper'
 import { useState } from 'react'
 import gameMovement from './gameMove'
 import GameStatusMessage from './gameMessage'
+import styled from 'styled-components'
+
+const DirectionButons = styled.button`
+  position: relative;
+  left: ${(props) => (props.direction === 'right' ? '100px' : '')};
+  right: ${(props) => (props.direction === 'left' ? '100px' : '')};
+  bottom: ${(props) =>
+    props.direction === 'left'
+      ? '50px'
+      : props.direction === 'down'
+      ? '50px'
+      : ''};
+  border: 2px solid #33275e;
+  font-size: 30px;
+  width: 150px;
+  margin: 5px;
+  border-radius: 20px;
+  cursor: pointer;
+  text-align: center;
+  color: white;
+  background-color: rgb(255, 0, 212);
+`
+
+const StartGameButton = styled.button`
+  border: 2px solid #33275e;
+  font-size: 30px;
+  width: 150px;
+  padding: 4px;
+  margin: 20px;
+  border-radius: 20px;
+  background-color: #4d0632;
+  cursor: pointer;
+  text-align: center;
+  color: white;
+`
+const SelectGameBoard = styled.select`
+  border: 2px solid #33275e;
+  font-size: 30px;
+  width: 150px;
+  padding: 4px;
+  margin: 20px;
+  border-radius: 20px;
+  background-color: #4d0632;
+  cursor: pointer;
+  text-align: center;
+  color: white;
+`
+
+const DivForDirectionButtons = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
 
 const SELECT_OPTION_VALUE = [5, 7, 10]
 const buttonsDirection = ['up', 'right', 'left', 'down']
@@ -24,24 +77,24 @@ const CreateGameStartTools = () => {
   }
 
   const arrowChange = (direction) => {
-     if (gameState.theGameContinues === false) {
+    if (gameState.theGameContinues === false) {
       return
     }
     setGameState(gameMovement(direction, gameState))
   }
   return (
     <div>
-      <select className="select" onChange={selectChange}>
+      <SelectGameBoard onChange={selectChange}>
         {SELECT_OPTION_VALUE.map((optionValue) => (
           <option key={optionValue} value={optionValue}>
             {optionValue}*{optionValue}
           </option>
         ))}
-      </select>
+      </SelectGameBoard>
 
-      <button key={'startBtn'} className="startBtn" onClick={startGame}>
+      <StartGameButton key={'startBtn'} onClick={startGame}>
         Start
-      </button>
+      </StartGameButton>
 
       {gameState.theGameContinues === false ? (
         <GameStatusMessage gameState={gameState} />
@@ -49,13 +102,19 @@ const CreateGameStartTools = () => {
         <GameWrapper gameState={gameState} />
       )}
 
-      <div className="arrowDirection">
-        { buttonsDirection.map((direction) => {
+      <DivForDirectionButtons>
+        {buttonsDirection.map((direction) => {
           return (
-            <button key={direction} className = {direction} onClick={() => arrowChange(direction)}>{direction}</button>
+            <DirectionButons
+              direction={direction}
+              key={direction}
+              onClick={() => arrowChange(direction)}
+            >
+              {direction}
+            </DirectionButons>
           )
         })}
-      </div>
+      </DivForDirectionButtons>
     </div>
   )
 }

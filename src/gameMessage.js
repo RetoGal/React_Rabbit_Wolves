@@ -1,16 +1,19 @@
 import React from 'react'
-import CHARACTER_PARAMS from './objCaracterParams'
+import styled from 'styled-components'
 
-const GameStatusMessage = (props) => {
-  if (props.gameState.theResultOfTheGame === 'gameOver') {
-    return (
-      <div>
-        <img src={CHARACTER_PARAMS.xashlama.src} />
-      </div>
-    )
-  } else if (props.gameState.theResultOfTheGame === 'youWon') {
-    return <h1> YOU WON</h1>
-  }
-}
+const GameResult = styled.p`
+  font-size: 80px;
+  text-align: center;
+  color: red;
+`
+const GameStatusMessage = (props) => (
+  <GameResult>
+    {props.gameState.theResultOfTheGame === 'youWon'
+      ? 'CONGRATULATIONS!! YOU WON'
+      : props.gameState.theResultOfTheGame === 'gameOver'
+      ? 'YOU LOST'
+      : ''}
+  </GameResult>
+)
 
 export default GameStatusMessage

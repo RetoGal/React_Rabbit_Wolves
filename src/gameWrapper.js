@@ -1,22 +1,37 @@
 import GameBoard from './gameBoard'
+import styled from 'styled-components'
+
+const DivСellСharacter = styled.div`
+  width: 60px;
+  height: 60px;
+  background-color: #ff6d419d;
+  margin: 1px;
+`
+
+const DivGameWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #ffdafa;
+  border-radius: 30px;
+  padding: 20px;
+  width: ${(props) => props.matrixLength * 60 + 20 + 'px'};
+`
 
 const GameWrapper = (props) => {
-  const GAME_STATE = props.gameState
-  const gameBoardStyle = {
-    width: GAME_STATE.matrix.length * 60 + 20 + 'px',
-  }
+  const gameState = props.gameState
   return (
-    <div className={'gameWrapper'} style={gameBoardStyle}>
-      {GAME_STATE.matrix.map((row) =>
+    <DivGameWrapper matrixLength={gameState.matrix.length}>
+      {gameState.matrix.map((row) =>
         row.map((cell, i) => {
           return (
-            <div key={i} className="box">
+            <DivСellСharacter key={i}>
               <GameBoard cell={cell} />
-            </div>
+            </DivСellСharacter>
           )
         })
       )}
-    </div>
+    </DivGameWrapper>
   )
 }
 
