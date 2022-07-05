@@ -1,5 +1,5 @@
 import createGameBoardMatrix from './setCharacterInfreePositon'
-import CreateGameBoard from './gameBoard'
+import GameWrapper from './gameWrapper'
 import { useState } from 'react'
 import gameMovement from './gameMove'
 import GameStatusMessage from './gameMessage'
@@ -9,16 +9,15 @@ const buttonsDirection = ['up', 'right', 'left', 'down']
 
 const CreateGameStartTools = () => {
   const [optionValue, setOptionValue] = useState(SELECT_OPTION_VALUE[0])
-  const selectOptionValue = parseInt(optionValue)
   const [gameState, setGameState] = useState({
     matrix: [],
     theGameContinues: false,
     theResultOfTheGame: '',
   })
-  const selectChange = (e) => setOptionValue(e.target.value)
+  const selectChange = (e) => setOptionValue(parseInt(e.target.value))
   const startGame = () => {
     setGameState({
-      matrix: createGameBoardMatrix(selectOptionValue),
+      matrix: createGameBoardMatrix(optionValue),
       theGameContinues: true,
       theResultOfTheGame: '',
     })
@@ -47,7 +46,7 @@ const CreateGameStartTools = () => {
       {gameState.theGameContinues === false ? (
         <GameStatusMessage gameState={gameState} />
       ) : (
-        <CreateGameBoard gameState={gameState} />
+        <GameWrapper gameState={gameState} />
       )}
 
       <div className="arrowDirection">

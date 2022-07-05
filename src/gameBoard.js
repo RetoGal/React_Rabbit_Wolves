@@ -1,23 +1,15 @@
-import DrawACharacter from './drawACharacter'
+import CHARACTER_PARAMS from './objCaracterParams'
 
-const gameBoard = (props) => {
-  const GAME_STATE = props.gameState
-  const gameBoardStyle = {
-    width: GAME_STATE.matrix.length * 60 + 20 + 'px',
-  }
-  return (
-    <div className={'gameBoard'} style={gameBoardStyle}>
-      {GAME_STATE.matrix.map((row) =>
-        row.map((cell, i) => {
-          return (
-            <div key={i} className="box">
-              <DrawACharacter cell={cell} />
-            </div>
-          )
-        })
-      )}
-    </div>
+const GameBoard = (props) =>
+  props.cell === CHARACTER_PARAMS.rabbit.name ? (
+    <img src={CHARACTER_PARAMS.rabbit.src} />
+  ) : props.cell === CHARACTER_PARAMS.wolf.name ? (
+    <img src={CHARACTER_PARAMS.wolf.src} />
+  ) : props.cell === CHARACTER_PARAMS.ban.name ? (
+    <img src={CHARACTER_PARAMS.ban.src} />
+  ) : props.cell === CHARACTER_PARAMS.home.name ? (
+    <img src={CHARACTER_PARAMS.home.src} />
+  ) : (
+    ''
   )
-}
-
-export default gameBoard
+export default GameBoard

@@ -5,17 +5,16 @@ import './index.css'
 import CreateGameStartTools from './gameStartTools'
 
 const Draw = () => {
-  const [componentNumber, setComponentNumber] = useState([])
-
+  const [gameBoardNumber, setGameBoardNumber] = useState([])
   const handleClick = () => {
-    setComponentNumber([...componentNumber, componentNumber.length + 1])
+    setGameBoardNumber([...gameBoardNumber, gameBoardNumber.length + 1])
   }
   return (
     <div>
       <button className="newAreaBtn" onClick={handleClick}>
         New Game
       </button>
-      {componentNumber.map((value) => {
+      {gameBoardNumber.map((value) => {
         return <CreateGameStartTools key={value} />
       })}
     </div>

@@ -33,7 +33,7 @@ margin: 25px;
 }
 
 
-.gameBoard {
+.gameWrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
