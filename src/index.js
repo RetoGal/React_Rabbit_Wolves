@@ -1,10 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { useState } from 'react'
-import './index.css'
-import CreateGameStartTools from './gameStartTools/gameStartTools'
-import { NewGameAreaButton } from './styleIndex'
 
+import CreateGameStartTools from './gameStartTools/gameStartTools'
+import { NewGameAreaButton, GlobalStyle } from './styleIndex'
 const Draw = () => {
   const [gameBoardNumber, setGameBoardNumber] = useState([])
   const handleClick = () => {
@@ -12,6 +11,7 @@ const Draw = () => {
   }
   return (
     <div>
+      <GlobalStyle />
       <NewGameAreaButton onClick={handleClick}>New Game</NewGameAreaButton>
       {gameBoardNumber.map((value) => {
         return <CreateGameStartTools key={value} />

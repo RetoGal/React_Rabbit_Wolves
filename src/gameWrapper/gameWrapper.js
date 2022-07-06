@@ -1,5 +1,5 @@
 import GameBoard from '../gameBoard/gameBoard'
-import { DivGameWrapper, DivСellСharacter } from './divCellCharacter'
+import { DivGameWrapper, DivСellСharacter } from './wrapperStyles'
 
 const GameWrapper = (props) => {
   const gameState = props.gameState
