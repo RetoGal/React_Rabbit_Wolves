@@ -1,5 +1,5 @@
-import GameBoard from './gameBoard'
-import { DivGameWrapper, DivСellСharacter } from './componentStyles'
+import GameBoard from '../gameBoard/gameBoard'
+import { DivGameWrapper, DivСellСharacter } from './divCellCharacter'
 
 const GameWrapper = (props) => {
   const gameState = props.gameState

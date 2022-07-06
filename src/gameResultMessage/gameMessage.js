@@ -1,14 +1,14 @@
 import React from 'react'
-import { GameResult } from './componentStyles'
+import { GameResultMessage } from './stylesForGameMessage'
 
 const GameStatusMessage = (props) => (
-  <GameResult>
+  <GameResultMessage>
     {props.gameState.theResultOfTheGame === 'youWon'
       ? 'CONGRATULATIONS!! YOU WON'
       : props.gameState.theResultOfTheGame === 'gameOver'
       ? 'YOU LOST'
       : ''}
-  </GameResult>
+  </GameResultMessage>
 )
 
 export default GameStatusMessage

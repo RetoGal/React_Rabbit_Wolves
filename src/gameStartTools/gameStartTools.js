@@ -1,15 +1,14 @@
-import createGameBoardMatrix from './setCharacterInfreePositon'
-import GameWrapper from './gameWrapper'
+import createGameBoardMatrix from '../functions/setCharacterInfreePositon'
+import GameWrapper from '../gameWrapper/gameWrapper'
 import { useState } from 'react'
-import gameMovement from './gameMove'
-import GameStatusMessage from './gameMessage'
+import gameMovement from '../functions/gameMove'
+import GameStatusMessage from '../gameResultMessage/gameMessage'
 import {
   SelectGameBoard,
   StartGameButton,
   DivForDirectionButtons,
   DirectionButons,
-} from './componentStyles'
-
+} from './stylesForGameResultMessage'
 const SELECT_OPTION_VALUE = [5, 7, 10]
 const buttonsDirection = ['up', 'right', 'left', 'down']
 

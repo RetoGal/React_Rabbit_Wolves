@@ -2,8 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { useState } from 'react'
 import './index.css'
-import CreateGameStartTools from './gameStartTools'
-import { NewGameAreaButton } from './componentStyles'
+import CreateGameStartTools from './gameStartTools/gameStartTools'
+import { NewGameAreaButton } from './styleIndex'
 
 const Draw = () => {
   const [gameBoardNumber, setGameBoardNumber] = useState([])
