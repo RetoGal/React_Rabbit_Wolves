@@ -1,11 +1,17 @@
 const getCordinatesOfCharacter = (gameState, character) => {
   const matrix = gameState.matrix
-  const cordsCharacter = []
-  for (let x = 0; x < matrix.length; x++) {
-    for (let y = 0; y < matrix.length; y++) {
-      matrix[x][y] === character && cordsCharacter.push([x, y])
-    }
-  }
+
+  const cordsCharacter = matrix.reduce((acc, row, x) => {
+    const characterIndices = row.reduce((indices, cell, y) => {
+      if (cell === character) {
+        indices.push([x, y])
+      }
+      return indices
+    }, [])
+
+    return acc.concat(characterIndices)
+  }, [])
+
   return cordsCharacter
 }
 
